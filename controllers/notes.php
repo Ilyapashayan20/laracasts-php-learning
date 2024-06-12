@@ -3,7 +3,7 @@
 $config = require 'config.php';
 $db = new Database($config['database']);
 $heading = 'Notes';
-$query = 'SELECT * FROM notes';
+$query = 'SELECT * FROM notes where user_id = 1';
 
 $notes = $db->query($query)->fetchAll();
 
