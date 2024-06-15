@@ -11,8 +11,8 @@ $note = $db->query($query, [
     'id' => $_GET['id']
 ])->findOrFail();
 
+$currentUserId = 1;
+
 authorize($note['user_id'] === $currentUserId);
-
-
 
 require "views/note.view.php";
