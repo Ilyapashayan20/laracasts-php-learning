@@ -5,15 +5,7 @@ use Core\Database;
 $config = require base_path('config.php');
 $db = new Database($config['database']);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $db->query('DELETE from notes WHERE id = :id',[
-        'id' => $_GET['id']
-    ]);
-
-    header('location: /notes');
-    exit();
-} else {
     $currentUserId = 1;
 
     $note = $db->query('select * from notes where id = :id', [
@@ -26,4 +18,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'heading' => 'Note',
         'note' => $note
     ]);
-}
